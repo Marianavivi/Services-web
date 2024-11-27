@@ -8,6 +8,7 @@ import LoginForm from "./components/auth/LoginForm";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import Confirmation from "./pages/Confirmation";
+import ProductDetails from "./pages/ProductDetails";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
         </Routes>
       </div>
     </BrowserRouter>
