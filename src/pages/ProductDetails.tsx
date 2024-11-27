@@ -1,9 +1,9 @@
-// pages/ProductDetails.tsx
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Typography, Button } from "@mui/material";
+import ProductReviews from "../components/ProductReviews";
 
 interface Product {
   id: number;
@@ -11,6 +11,7 @@ interface Product {
   description: string;
   price: number;
   imageUrl: string;
+  reviews: { rating: number; comment: string }[];
 }
 
 const ProductDetails: React.FC = () => {
@@ -71,6 +72,7 @@ const ProductDetails: React.FC = () => {
       <Button variant="contained" onClick={handleAddToCart}>
         Add to Cart
       </Button>
+      <ProductReviews reviews={product.reviews} />
     </div>
   );
 };
