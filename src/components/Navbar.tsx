@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -24,10 +25,16 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             My Online Store
           </Typography>
-          <Button color="inherit">Login</Button>
+          <div>
+            <Link to="/register">
+              <Button color="inherit">Register</Button>
+            </Link>
+            <Link to="/login">
+              <Button color="inherit">Login</Button>
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
   );
 }
-
