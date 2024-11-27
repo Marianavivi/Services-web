@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea, Button, CardActions } from "@mui/material";
 
 interface Product {
   id: number;
@@ -13,13 +13,25 @@ interface Product {
 }
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
+  const handleAddToCart = () => {
+    // Load existing cart items from local storage
+    const storedCartItems = localStorage.getItem("cartItems");
+    const cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+
+    // Add the new product to the cart
+    cartItems.push(product);
+
+    // Store the updated cart in local storage
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  };
+
   return (
     <Card>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={product.imageUrl} 
+          image={product.imageUrl}
           alt={product.name}
         />
         <CardContent>
@@ -31,6 +43,11 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <CardActions>
+        <Button size="small" onClick={handleAddToCart}>
+          Add to Cart
+        </Button>
+      </CardActions>
     </Card>
   );
 };
