@@ -17,16 +17,24 @@ const products = [
   {
     id: 1,
     name: "Product 1",
-    description: "This is product 1", // Add description
+    description: "This is product 1",
     price: 19.99,
     imageUrl: "https://via.placeholder.com/150",
+    reviews: [
+      { rating: 5, comment: "Great product!" },
+      { rating: 4, comment: "Good value for money." },
+    ],
   },
   {
     id: 2,
     name: "Product 2",
-    description: "This is product 2", // Add description
+    description: "This is product 2",
     price: 29.99,
     imageUrl: "https://via.placeholder.com/150",
+    reviews: [
+      { rating: 3, comment: "It's okay." },
+      { rating: 5, comment: "I love it!" },
+    ],
   },
   // Add more products here
 ];
